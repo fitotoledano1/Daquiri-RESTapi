@@ -29,7 +29,7 @@ app.get('/movies', async (req, res) => {
     return output;
 });
 
-/// Filter by category
+/// Fetch movies by category
 app.get('/:category', async (req, res) => {
     const category = req.params.category;
     const query = db.collection('movies').where('category', '==', category);
