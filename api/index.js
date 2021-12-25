@@ -11,12 +11,12 @@ app.listen(port, () => {
     console.log('Daquiri REST API is listening on port 8081');
 });
 
-/// Root Directory.
+/// Root Directory
 app.get('/', async (req, res) => {
     res.json({status: 'Daquiri is served.'});
 });
 
-/// All movies endpoint.
+/// All movies endpoint
 app.get('/movies', async (req, res) => {
     var output = 
     db.collection("movies").get().then((querySnapshot) => {
@@ -29,7 +29,7 @@ app.get('/movies', async (req, res) => {
     return output;
 });
 
-/// Filter by category.
+/// Filter by category
 app.get('/:category', async (req, res) => {
     const category = req.params.category;
     const query = db.collection('movies').where('category', '==', category);
